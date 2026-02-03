@@ -3,62 +3,57 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBK-v8xtt7x0AA_btC0oE88IolgU9m5Q3E",
-  authDomain: "cmcsvls.firebaseapp.com",
-  projectId: "cmcsvls",
-  storageBucket: "cmcsvls.firebasestorage.app",
-  messagingSenderId: "973791112453",
-  appId: "1:973791112453:web:728b9ac51c0f3f89955b6c"
+    // PASTE YOUR CONFIG HERE
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-document.getElementById('enrollForm').addEventListener('submit', async (e) => {
+document.getElementById('enrollmentForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 1. Collect Data
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const studentData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        studentId: document.getElementById('studentId').value,
-        birthday: document.getElementById('birthday').value,
-        gender: document.getElementById('gender').value,
-        course: document.getElementById('course').value,
-        yearLevel: document.getElementById('yearLevel').value,
-        address: document.getElementById('address').value,
-        role: "student",
-        verified: false, // Must be approved by Admin
-        status: "enrolled",
-        createdAt: serverTimestamp()
-    };
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const course = document.getElementById('course').value;
+
+    // 1. Basic Password Validation
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
 
     try {
-        // 2. Create User in Auth
+        // 2. Create User in Firebase Authentication
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        const uid = userCredential.user.uid;
 
-        // 3. Create User Document in 'users' collection
-        await setDoc(doc(db, "users", user.uid), {
+        // 3. Create permissions record in 'users' collection
+        await setDoc(doc(db, "users", uid), {
             email: email,
-            role: "student",
-            active: false // Critical for MVP: cannot login until true
+            role: "student", // Default role
+            active: false,   // Must be set to true by Admin
+            createdAt: serverTimestamp()
         });
 
-        // 4. Create Student Document in 'students' collection
-        await setDoc(doc(db, "students", user.uid), {
-            uid: user.uid,
-            ...studentData
+        // 4. Create student profile in 'students' collection
+        await setDoc(doc(db, "students", uid), {
+            firstName: firstName,
+            lastName: lastName,
+            course: course,
+            yearLevel: 1,
+            verified: false,
+            uid: uid
         });
 
-        alert("Enrollment submitted! Please wait for Admin approval.");
-        window.location.href = "index.html";
+        alert("Enrollment Submitted! Please wait for Admin approval before logging in.");
+        window.location.href = "login.html";
 
     } catch (error) {
-        console.error("Error during enrollment:", error);
+        console.error("Enrollment Error:", error);
         alert(error.message);
     }
 });
