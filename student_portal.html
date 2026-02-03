@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-indigo-900 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-bold text-lg italic">SVLS Student Portal</h1>
+            <button id="logoutBtn" class="bg-indigo-800 px-4 py-2 rounded text-sm hover:bg-indigo-700">Logout</button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-6">
+        <div id="studentHeader" class="bg-white p-6 rounded-xl shadow-sm mb-8 border-l-4 border-indigo-600">
+            <h2 class="text-2xl font-bold text-gray-800" id="studentName">Loading Profile...</h2>
+            <p class="text-gray-500" id="studentDetails">Course & Year Level</p>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-700 mb-4">My Enrolled Classes</h3>
+        
+        <div id="enrolledClasses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+    </main>
+
+    <script type="module" src="student_portal.js"></script>
+</body>
+</html>
