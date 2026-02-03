@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher & Class Management | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-red-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-bold">SVLS Admin / Classes</h1>
+            <a href="admin_manage.html" class="text-sm bg-red-700 px-4 py-2 rounded">Back to Settings</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-10 p-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <section class="bg-white p-6 rounded-xl shadow">
+            <h2 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Step 1: Register Teacher</h2>
+            <form id="teacherForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium">Full Name</label>
+                    <input type="text" id="teacherName" required class="w-full border p-2 rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Email</label>
+                    <input type="email" id="teacherEmail" required class="w-full border p-2 rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Temporary Password</label>
+                    <input type="password" id="teacherPass" required class="w-full border p-2 rounded mt-1">
+                </div>
+                <button type="submit" class="w-full bg-blue-900 text-white py-2 rounded hover:bg-blue-800 transition">Create Teacher Account</button>
+            </form>
+        </section>
+
+        <section class="bg-white p-6 rounded-xl shadow">
+            <h2 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Step 2: Create a Class</h2>
+            <form id="classForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium">Select Subject</label>
+                    <select id="selectSubject" required class="w-full border p-2 rounded mt-1"></select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Assign Teacher</label>
+                    <select id="selectTeacher" required class="w-full border p-2 rounded mt-1"></select>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium">School Year</label>
+                        <input type="text" id="schoolYear" placeholder="2025-2026" required class="w-alt border p-2 rounded mt-1 w-full">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Semester</label>
+                        <select id="semester" class="w-full border p-2 rounded mt-1">
+                            <option value="1">1st Sem</option>
+                            <option value="2">2nd Sem</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800 transition">Generate Class</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script type="module" src="admin_classes.js"></script>
+</body>
+</html>
