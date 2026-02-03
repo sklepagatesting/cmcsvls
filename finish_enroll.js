@@ -1,19 +1,21 @@
-// Inside your completeSignIn function
+// Inside your finish_enroll.js completeSignIn() function
+const urlParams = new URLSearchParams(window.location.search);
+const isInitialSetup = urlParams.get('init') === 'true';
+
 const result = await signInWithEmailLink(auth, email, window.location.href);
 const user = result.user;
 
-// Check if this user already exists in Firestore
 const userRef = doc(db, "users", user.uid);
 const userSnap = await getDoc(userRef);
 
 if (!userSnap.exists()) {
-    // This is a NEW user
     await setDoc(userRef, {
         email: email,
-        role: "student", // Default for everyone
-        active: false    // Admin must flip this to true
+        // IF coming from setup page, make superadmin, otherwise student
+        role: isInitialSetup ? "superadmin" : "student",
+        active: isInitialSetup ? true : false
     });
-} else {
-    // If Admin pre-created the teacher record, just update the UID
-    // Or simply let them in if the record is already fully set up
+    
+    alert(isInitialSetup ? "SuperAdmin Created!" : "Enrollment Pending.");
+    window.location.href = isInitialSetup ? "admin.html" : "login.html";
 }
