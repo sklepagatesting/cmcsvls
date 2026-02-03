@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Grades | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="font-bold text-lg">Grade Management</h1>
+            <a href="teacher_dashboard.html" class="text-sm bg-blue-700 px-4 py-2 rounded">Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4 max-w-4xl">
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-600">
+            <h2 id="classTitle" class="text-2xl font-bold text-gray-800 mb-6 italic">Loading Class...</h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 text-gray-600 uppercase text-xs">
+                            <th class="p-4 border-b">Student Name</th>
+                            <th class="p-4 border-b w-32">Numeric (75-100)</th>
+                            <th class="p-4 border-b w-32">Equivalent</th>
+                            <th class="p-4 border-b">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gradeList">
+                        </tbody>
+                </table>
+            </div>
+
+            <button id="saveGrades" class="w-full mt-8 bg-blue-900 text-white py-4 rounded-lg font-bold hover:bg-blue-800 transition shadow-lg">
+                Finalize & Save Grades
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="grades.js"></script>
+</body>
+</html>
