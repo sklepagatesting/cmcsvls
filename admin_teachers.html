@@ -1,0 +1,25 @@
+import { getAuth, sendSignInLinkToEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+async function registerTeacher(teacherEmail, teacherName) {
+    const actionCodeSettings = {
+        // Teachers go to a special finish page or the standard one
+        url: 'https://your-project.firebaseapp.com/finish_enroll.html',
+        handleCodeInApp: true,
+    };
+
+    try {
+        // 1. Send the invitation link to the teacher
+        await sendSignInLinkToEmail(auth, teacherEmail, actionCodeSettings);
+        
+        // 2. Pre-create the user document with the TEACHER role
+        // Note: At this stage, we don't have their UID yet. 
+        // We will finalize this when they click the link.
+        alert("Teacher invitation sent to " + teacherEmail);
+    } catch (error) {
+        console.error(error);
+    }
+}
