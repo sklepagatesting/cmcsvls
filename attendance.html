@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Attendance | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="font-bold">Attendance Sheet</h1>
+            <a href="teacher_dashboard.html" class="text-sm bg-blue-700 px-4 py-2 rounded">Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4 max-w-3xl">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                <h2 id="classTitle" class="text-2xl font-bold text-gray-800 italic">Loading Class...</h2>
+                <input type="date" id="attendanceDate" class="border-2 p-2 rounded-lg focus:border-blue-500">
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-600 uppercase text-xs">
+                            <th class="p-3">Student Name</th>
+                            <th class="p-3 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentList">
+                        </tbody>
+                </table>
+            </div>
+
+            <button id="saveAttendance" class="w-full mt-6 bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-lg">
+                Save Attendance
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="attendance.js"></script>
+</body>
+</html>
