@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classroom | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-indigo-900 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 id="navSubject" class="font-bold">Loading Subject...</h1>
+            <a href="student_portal.html" class="text-sm bg-indigo-800 px-3 py-1 rounded">Back to Portal</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500">
+                    <h3 class="text-sm uppercase font-bold text-gray-500">Final Grade</h3>
+                    <div id="gradeDisplay" class="mt-2">
+                        <span class="text-4xl font-black text-gray-800" id="collegeGrade">--</span>
+                        <p class="text-sm text-gray-600" id="gradeRemarks">No grade recorded yet.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-sm uppercase font-bold text-gray-500 mb-4">Attendance Summary</h3>
+                    <div class="flex justify-between text-center">
+                        <div><p class="text-xs text-gray-400">Present</p><p id="countP" class="text-xl font-bold text-green-600">0</p></div>
+                        <div><p class="text-xs text-gray-400">Absent</p><p id="countA" class="text-xl font-bold text-red-600">0</p></div>
+                        <div><p class="text-xs text-gray-400">Late</p><p id="countL" class="text-xl font-bold text-yellow-600">0</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <div class="bg-white p-6 rounded-xl shadow-sm min-h-[400px]">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Learning Materials</h3>
+                    <div id="materialsList" class="space-y-4">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="student_classroom.js"></script>
+</body>
+</html>
