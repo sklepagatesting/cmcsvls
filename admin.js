@@ -1,7 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, query, where, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const firebaseConfig = { /* Your Config Here */ };
+const firebaseConfig = {
+  apiKey: "AIzaSyBK-v8xtt7x0AA_btC0oE88IolgU9m5Q3E",
+  authDomain: "cmcsvls.firebaseapp.com",
+  projectId: "cmcsvls",
+  storageBucket: "cmcsvls.firebasestorage.app",
+  messagingSenderId: "973791112453",
+  appId: "1:973791112453:web:728b9ac51c0f3f89955b6c",
+  measurementId: "G-7KEY33ZZHE"
+};
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
