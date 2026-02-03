@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Initial Setup | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div id="setupCard" class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full hidden">
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">Initialize SuperAdmin</h1>
+        <p class="text-gray-500 text-sm mb-6">No administrator detected. Use this form to create the primary system controller.</p>
+        
+        <form id="setupForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Admin Email</label>
+                <input type="email" id="adminEmail" required class="w-full border-2 p-3 rounded-lg mt-1 focus:border-indigo-500 outline-none">
+            </div>
+            <button type="submit" id="sendBtn" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
+                Send Authentication Link
+            </button>
+        </form>
+    </div>
+
+    <div id="statusMessage" class="text-white font-medium">Checking system status...</div>
+
+    <script type="module" src="admin_setup.js"></script>
+</body>
+</html>
