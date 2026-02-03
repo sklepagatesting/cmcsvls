@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Materials | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="font-bold">Upload Materials</h1>
+            <a href="teacher_dashboard.html" class="text-sm bg-blue-700 px-4 py-2 rounded">Back</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4 max-w-2xl">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 id="classTitle" class="text-xl font-bold text-gray-800 mb-6">Loading Class...</h2>
+            
+            <form id="materialForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Material Title</label>
+                    <input type="text" id="title" required placeholder="e.g., Week 1: Intro to JavaScript" 
+                           class="w-full border-2 p-2 rounded-lg mt-1 focus:border-blue-500">
+                </div>
+
+                <div class="border-2 border-dashed border-gray-300 p-6 rounded-lg text-center">
+                    <label class="block text-sm font-medium text-gray-600 mb-2">Upload PDF File</label>
+                    <input type="file" id="fileInput" accept=".pdf" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                </div>
+
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-xs uppercase">OR</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">External Link (Optional)</label>
+                    <input type="url" id="linkInput" placeholder="https://youtube.com/..." 
+                           class="w-full border-2 p-2 rounded-lg mt-1 focus:border-blue-500">
+                </div>
+
+                <button type="submit" id="uploadBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">
+                    Share with Class
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="materials.js"></script>
+</body>
+</html>
