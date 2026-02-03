@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enroll Students in Class | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-red-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="font-bold">SVLS Admin / Student Assignment</h1>
+            <a href="admin_classes.html" class="text-sm bg-red-700 px-4 py-2 rounded">Back to Classes</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-10 p-6 max-w-2xl">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-4">Enroll Student into Class</h2>
+            
+            <form id="enrollStudentForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">1. Select Approved Student</label>
+                    <select id="studentSelect" required class="w-full border-2 p-3 rounded-lg mt-1 focus:border-blue-500 outline-none">
+                        <option value="">Loading students...</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">2. Select Class (Subject + Teacher)</label>
+                    <select id="classSelect" required class="w-full border-2 p-3 rounded-lg mt-1 focus:border-blue-500 outline-none">
+                        <option value="">Loading classes...</option>
+                    </select>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg text-sm text-blue-700">
+                    <p><strong>Note:</strong> Enrolling a student allows them to view this class in their portal and allows the teacher to record their attendance/grades.</p>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-md">
+                    Confirm Enrollment
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="admin_enroll_students.js"></script>
+</body>
+</html>
