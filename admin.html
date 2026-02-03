@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | SVLS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-red-800 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="font-bold">SVLS SuperAdmin</h1>
+            <button id="logoutBtn" class="text-sm bg-red-700 px-3 py-1 rounded">Logout</button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-10 p-6">
+        <h2 class="text-2xl font-bold mb-6">Pending Student Approvals</h2>
+        
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 text-left text-sm uppercase font-normal">
+                        <th class="px-5 py-3">Name</th>
+                        <th class="px-5 py-3">Course</th>
+                        <th class="px-5 py-3">Status</th>
+                        <th class="px-5 py-3">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="pendingStudentsTable">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
